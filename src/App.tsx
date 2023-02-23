@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import UserLoginSignUp from "./templates/UserLoginSignup/UserLoginSignUp";
+import UserGeneralInfo from "./templates/UserGeneralInfo/UserGeneralInfo";
+import UserStylePreferences from "./templates/UserStylePreferences/UserStylePreferences";
 
 function App() {
+  // The following hook controls current view display based on view index [1-5]
+  const [currentView, setCurrentView] = useState(1);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/segoe-ui-4"
+          rel="stylesheet"
+        />
+      </head>
+      <main>
+        <div className="App">
+          {currentView === 1 && (
+            <UserLoginSignUp setCurrentView={setCurrentView} />
+          )}
+          {currentView === 2 && (
+            <UserGeneralInfo setCurrentView={setCurrentView} />
+          )}
+          {currentView === 3 && (
+            <UserStylePreferences setCurrentView={setCurrentView} />
+          )}
+        </div>
+      </main>
+    </>
   );
 }
 
