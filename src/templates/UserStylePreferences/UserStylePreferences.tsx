@@ -14,6 +14,7 @@ import CustomEditableTextInput from "../../components/CustomEditableTextInput/Cu
 import CustomSquareInput from "../../components/CustomSquareInput/CustomSquareInput";
 import CustomCTAButton from "../../components/CustomCTAButton/CustomCTAButton";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const ClothingType = [
   {
@@ -46,48 +47,57 @@ function UserStylePreferences({ setCurrentView }: UserGeneralInfoProps) {
   return (
     <AppContainer>
       <HeaderContainer>
-        <ButtonWrapper>
-          <Tooltip title="Help">
-            <Button variant="text">
-              <Typography sx={{ textTransform: "capitalize" }} variant="h5">
-                Help
-              </Typography>
-            </Button>
+        <ButtonWrapperRight>
+          <Tooltip title="Close">
+            <IconButton>
+              <HighlightOffIcon sx={{ color: "#000000" }} />
+            </IconButton>
           </Tooltip>
-        </ButtonWrapper>
-        <LogomarkWrapper>
-          <img
-            src="/image/stylecard-logomark.png"
-            style={{ width: "34px", height: "60px" }}
-          />
-        </LogomarkWrapper>
-        <TabWrapper>
-          <TabButton
-            sx={{
-              background: "linear-gradient(0deg, #979797, #979797), #FFCD00",
-            }}
-            variant="contained"
-          >
-            Men
-          </TabButton>
-          <TabButton
-            sx={{
-              background: "linear-gradient(0deg, #FFCD00, #FFCD00), #FFCD00",
-            }}
-            variant="contained"
-          >
-            Women
-          </TabButton>
-          <TabButton
-            sx={{
-              background: "linear-gradient(0deg, #979797, #979797), #FFCD00",
-            }}
-            variant="contained"
-          >
-            Both
-          </TabButton>
-        </TabWrapper>
+        </ButtonWrapperRight>
+        <ButtonWrapperLeft>
+          <Tooltip title="Go Back">
+            <IconButton>
+              <ChevronLeftIcon sx={{ color: "#000000" }} />
+            </IconButton>
+          </Tooltip>
+        </ButtonWrapperLeft>
       </HeaderContainer>
+      <HeaderLogoWrapper>
+        <img
+          src="/image/stylecard-logo-horizontal.png"
+          style={{ width: "224px", height: "50px" }}
+        />
+      </HeaderLogoWrapper>
+      <TabWrapper>
+        <TabButton
+          sx={{
+            background: "#ffffff !important",
+            color: "#000000 !important",
+            border: "1px solid #0000000 !important",
+          }}
+          variant="contained"
+        >
+          Men
+        </TabButton>
+        <TabButton
+          sx={{
+            background: "linear-gradient(0deg, #FFCD00, #FFCD00), #FFCD00",
+          }}
+          variant="contained"
+        >
+          Women
+        </TabButton>
+        <TabButton
+          sx={{
+            background: "#ffffff !important",
+            color: "#000000 !important",
+            border: "1px solid #0000000 !important",
+          }}
+          variant="contained"
+        >
+          Both
+        </TabButton>
+      </TabWrapper>
       <H4Text variant="h4">Find your best fit with Stylecard</H4Text>
       <BodyOneText variant="body1">
         Discover styles and brands perfect for{" "}
@@ -108,12 +118,6 @@ function UserStylePreferences({ setCurrentView }: UserGeneralInfoProps) {
         label={"Save Changes"}
         variant={"share"}
       />
-      <LogoWrapper>
-        <img
-          style={{ width: "119px", height: "190px" }}
-          src="/image/stylecard-logo-vertical.png"
-        />
-      </LogoWrapper>
     </AppContainer>
   );
 }
@@ -122,15 +126,14 @@ export default UserStylePreferences;
 
 const AppContainer = styled(Box)(({ theme }) => ({
   maxWidth: "390px",
-  width: "390px",
-  height: "auto",
+  height: "600px",
   border: "1px solid #ececec",
   borderRadius: "8px 8px 8px 8px",
   background: "#ffffff",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "40px 40px",
+  padding: "28px 28px",
 }));
 
 const PageWrapper = styled(Box)(({ theme }) => ({
@@ -151,7 +154,7 @@ const PageWrapper = styled(Box)(({ theme }) => ({
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  height: "80px",
+  height: "auto",
   position: "relative",
 }));
 
@@ -230,10 +233,16 @@ const CustomDropdownSelect = styled(TextField)(({ theme }) => ({
   marginTop: "42px",
 }));
 
-const ButtonWrapper = styled(Box)(({ theme }) => ({
+const ButtonWrapperRight = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: "0px",
   right: "0px",
+}));
+
+const ButtonWrapperLeft = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  top: "0px",
+  left: "0px",
 }));
 
 const LogomarkWrapper = styled(Box)(({ theme }) => ({
@@ -243,12 +252,13 @@ const LogomarkWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const TabWrapper = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  bottom: "0px",
-  right: "0px",
+  width: "100%",
   display: "flex",
   flexDirection: "row",
-  gap: "9px",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "21px",
+  marginTop: "26px",
 }));
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -280,4 +290,13 @@ const TabButton = styled(Button)(({ theme }) => ({
   lineHeight: "21px",
   color: "#FFFFFF",
   textTransform: "none",
+}));
+
+const HeaderLogoWrapper = styled(Box)(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: "24px",
 }));

@@ -49,10 +49,10 @@ function UserLoginSignUp({ setCurrentView }: UserLoginSignUpProps) {
       <HeaderLogoWrapper>
         <img
           src="/image/stylecard-logo-horizontal.png"
-          style={{ width: "305px", height: "68px" }}
+          style={{ width: "224px", height: "50px" }}
         />
       </HeaderLogoWrapper>
-      <H5Text variant="h5">Login / Sign Up</H5Text>
+      <H5Text variant="h5">Login</H5Text>
       <H4Text variant="h4">Welcome to Stylecard</H4Text>
       <CustomDropdownSelect
         fullWidth
@@ -71,39 +71,22 @@ function UserLoginSignUp({ setCurrentView }: UserLoginSignUpProps) {
         ))}
       </CustomDropdownSelect>
       <CustomInput fullWidth required id="phoneNumber" label="Phone Number" />
-      <BodyTwoText variant="body2">
-        We’ll call of text you to confirm your number. Standard message and data
-        rates apply.{" "}
-        <a>
-          <u>
-            <strong>Privacy Policy</strong>
-          </u>
-        </a>
-      </BodyTwoText>
       <CustomButton
+        sx={{ marginTop: "44px" }}
         fullWidth
         variant="contained"
         onClick={() => setCurrentView(2)}
       >
-        <span>Sign Up</span>
-        <DoubleArrowIcon />{" "}
-      </CustomButton>
-      <H4Text variant="h4">Already have an account?</H4Text>
-      <BodyOneText>
-        Log in with your phone number below so you can get back to your
-        personalized Stylecard.
-      </BodyOneText>
-      <CustomInput fullWidth required id="phoneNumber" label="Phone Number" />
-      <CustomButton fullWidth variant="contained">
         <span>Sign In</span>
         <DoubleArrowIcon />{" "}
       </CustomButton>
-      <LogoWrapper>
-        <img
-          style={{ width: "119px", height: "190px" }}
-          src="/image/stylecard-logo-vertical.png"
-        />
-      </LogoWrapper>
+      <H4Text sx={{ marginTop: "60px" }} variant="h4">
+        Need to create an account instead?
+      </H4Text>
+      <CustomButton sx={{ marginTop: "19px" }} fullWidth variant="contained">
+        <span>Sign Up</span>
+        <DoubleArrowIcon />{" "}
+      </CustomButton>
     </AppContainer>
   );
 }
@@ -112,14 +95,13 @@ export default UserLoginSignUp;
 
 const AppContainer = styled(Box)(({ theme }) => ({
   maxWidth: "390px",
-  height: "auto",
+  height: "600px",
   border: "1px solid #ececec",
-  borderRadius: "8px 8px 8px 8px",
   background: "#ffffff",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "30px 30px",
+  padding: "28px 28px",
 }));
 
 const PageWrapper = styled(Box)(({ theme }) => ({
@@ -165,7 +147,7 @@ const HeaderLogoWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  marginBottom: "30px",
+  marginTop: "24px",
 }));
 
 const BodyOneText = styled(Typography)(({ theme }) => ({
@@ -173,12 +155,14 @@ const BodyOneText = styled(Typography)(({ theme }) => ({
 }));
 
 const H4Text = styled(Typography)(({ theme }) => ({
-  textAlign: "left",
-  marginTop: "42px",
+  textAlign: "center",
+  marginTop: "11px",
+  fontWeight: "bolder",
   width: "100%",
 }));
 
 const H5Text = styled(Typography)(({ theme }) => ({
+  marginTop: "15px",
   textAlign: "center",
 }));
 
@@ -201,7 +185,7 @@ const CustomDropdownSelect = styled(TextField)(({ theme }) => ({
   opacity: 0.25,
   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
   borderRadius: "10px",
-  marginTop: "42px",
+  marginTop: "18px",
 }));
 
 const ButtonWrapper = styled(Box)(({ theme }) => ({
@@ -224,5 +208,5 @@ const CustomButton = styled(Button)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   gap: "20px",
-  marginTop: "34px",
+  minHeight:'48px',
 }));

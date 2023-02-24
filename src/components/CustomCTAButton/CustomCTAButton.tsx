@@ -10,13 +10,23 @@ interface CustomCTAButtonProps {
   onClick?: any;
   label: string;
   variant: "left" | "right" | "up" | "search" | "share";
+  style?: any;
+  disabled?: boolean;
 }
 
-function CustomCTAButton({ onClick, label, variant }: CustomCTAButtonProps) {
+function CustomCTAButton({
+  onClick,
+  label,
+  variant,
+  style,
+  disabled,
+}: CustomCTAButtonProps) {
   return (
     <CustomButton
       fullWidth
       variant="contained"
+      style={style}
+      disabled={disabled}
       onClick={() => {
         if (onClick) {
           onClick();
@@ -24,12 +34,13 @@ function CustomCTAButton({ onClick, label, variant }: CustomCTAButtonProps) {
       }}
     >
       {variant === "up" && <KeyboardDoubleArrowUpOutlinedIcon />}
-      {variant === "right" && <KeyboardDoubleArrowRightOutlinedIcon />}
+      {variant === "left" && <KeyboardDoubleArrowLeftOutlinedIcon />}
       {variant === "search" && <SearchOutlinedIcon />}
       {variant === "share" && <ShareOutlinedIcon />}
 
       <span>{label}</span>
-      {variant === "left" && <KeyboardDoubleArrowLeftOutlinedIcon />}
+      {variant === "right" && <KeyboardDoubleArrowRightOutlinedIcon />}
+
       {variant === "up" && <KeyboardDoubleArrowUpOutlinedIcon />}
     </CustomButton>
   );
@@ -41,9 +52,9 @@ const CustomButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(0deg, #FFCD00, #FFCD00), #FFCD00",
   mixBlendMode: "normal",
   borderRadius: "10px",
-  fontFamily: "Segoe UI",
+  fontFamily: "Gilroy-Regular",
   fontStyle: "normal",
-  fontWeight: 700,
+  fontWeight: 800,
   textTransform: "capitalize",
   fontSize: "20px",
   lineHeight: "27px",
@@ -51,5 +62,5 @@ const CustomButton = styled(Button)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   gap: "20px",
-  marginTop: "34px",
+  minHeight: "44px",
 }));

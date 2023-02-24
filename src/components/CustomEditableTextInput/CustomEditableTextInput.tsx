@@ -35,7 +35,7 @@ function CustomEditableTextInput({
             <IconButton onClick={() => setEditEnabled(false)}>
               <CancelOutlinedIcon />
             </IconButton>
-            <CustomTextInput onChange={onChange} value={value} label={label} />
+            <CustomTextInput type="text" onChange={onChange} value={value} label={label} />
           </>
         )}
       </TextFieldWrapper>
