@@ -3,12 +3,10 @@ import {
   Button,
   IconButton,
   styled,
-  TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import React, { useState } from "react";
 import CustomCTAButton from "../../components/CustomCTAButton/CustomCTAButton";
 import CustomDropdownSelect from "../../components/CustomDropdownSelect/CustomDropdownSelect";
@@ -143,23 +141,6 @@ const ButtonWrapper = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: "0px",
   right: "0px",
-}));
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  background: "linear-gradient(0deg, #FFCD00, #FFCD00), #FFCD00",
-  mixBlendMode: "normal",
-  borderRadius: "10px",
-  fontFamily: "Segoe UI",
-  fontStyle: "normal",
-  fontWeight: 700,
-  textTransform: "capitalize",
-  fontSize: "20px",
-  lineHeight: "27px",
-  color: "#FFFFFF",
-  display: "flex",
-  flexDirection: "row",
-  gap: "20px",
-  minHeight: "48px",
 }));
 
 const BodyTwoText = styled(Typography)(({ theme }) => ({

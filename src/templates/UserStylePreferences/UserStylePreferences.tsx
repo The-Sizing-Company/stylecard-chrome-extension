@@ -8,13 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import React, { useState } from "react";
-import CustomEditableTextInput from "../../components/CustomEditableTextInput/CustomEditableTextInput";
-import CustomSquareInput from "../../components/CustomSquareInput/CustomSquareInput";
 import CustomCTAButton from "../../components/CustomCTAButton/CustomCTAButton";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 const ClothingType = [
   {
@@ -56,7 +53,7 @@ function UserStylePreferences({ setCurrentView }: UserGeneralInfoProps) {
         </ButtonWrapperRight>
         <ButtonWrapperLeft>
           <Tooltip title="Go Back">
-            <IconButton>
+            <IconButton onClick={() => setCurrentView(1)}>
               <ChevronLeftIcon sx={{ color: "#000000" }} />
             </IconButton>
           </Tooltip>
@@ -136,61 +133,10 @@ const AppContainer = styled(Box)(({ theme }) => ({
   padding: "28px 28px",
 }));
 
-const PageWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  background: "#ececec",
-  paddingTop: "60px",
-  paddingBottom: "60px",
-  [theme.breakpoints.down("md")]: {
-    paddingTop: "0px",
-    paddingBottom: "0px",
-  },
-}));
-
 const HeaderContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "auto",
   position: "relative",
-}));
-
-const LogoWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginTop: "100px",
-}));
-
-const SingleInputWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginTop: "44px",
-}));
-
-const NamesWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  alignItems: "center",
-}));
-
-const BirthdayWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr",
-  alignItems: "center",
-  justifyItems: "center",
 }));
 
 const BodyOneText = styled(Typography)(({ theme }) => ({
@@ -203,10 +149,6 @@ const H4Text = styled(Typography)(({ theme }) => ({
   width: "100%",
 }));
 
-const H5Text = styled(Typography)(({ theme }) => ({
-  textAlign: "center",
-}));
-
 const RadioButtonWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
   marginTop: "27px",
@@ -214,23 +156,6 @@ const RadioButtonWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "left",
-}));
-
-const CustomInput = styled(TextField)(({ theme }) => ({
-  background: "#FFFFFF",
-  opacity: 0.25,
-  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-  borderRadius: "10px",
-  marginTop: "12px",
-}));
-
-const CustomDropdownSelect = styled(TextField)(({ theme }) => ({
-  minWidth: "300px",
-  background: "#FFFFFF",
-  opacity: 0.25,
-  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-  borderRadius: "10px",
-  marginTop: "42px",
 }));
 
 const ButtonWrapperRight = styled(Box)(({ theme }) => ({
@@ -245,12 +170,6 @@ const ButtonWrapperLeft = styled(Box)(({ theme }) => ({
   left: "0px",
 }));
 
-const LogomarkWrapper = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: "0px",
-  left: "0px",
-}));
-
 const TabWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
   display: "flex",
@@ -259,23 +178,6 @@ const TabWrapper = styled(Box)(({ theme }) => ({
   alignItems: "center",
   gap: "21px",
   marginTop: "26px",
-}));
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  background: "linear-gradient(0deg, #FFCD00, #FFCD00), #FFCD00",
-  mixBlendMode: "normal",
-  borderRadius: "10px",
-  fontFamily: "Segoe UI",
-  fontStyle: "normal",
-  fontWeight: 700,
-  textTransform: "capitalize",
-  fontSize: "20px",
-  lineHeight: "27px",
-  color: "#FFFFFF",
-  display: "flex",
-  flexDirection: "row",
-  gap: "20px",
-  marginTop: "34px",
 }));
 
 const TabButton = styled(Button)(({ theme }) => ({

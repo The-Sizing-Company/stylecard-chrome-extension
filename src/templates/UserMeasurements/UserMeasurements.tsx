@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   IconButton,
   styled,
   TextField,
@@ -8,10 +9,10 @@ import {
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import React, { useState } from "react";
-import CustomEditableTextInput from "../../components/CustomEditableTextInput/CustomEditableTextInput";
 import CustomSquareInput from "../../components/CustomSquareInput/CustomSquareInput";
 import CustomCTAButton from "../../components/CustomCTAButton/CustomCTAButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton";
 
 const ClothingType = [
   {
@@ -32,7 +33,7 @@ interface UserGeneralInfoProps {
   setCurrentView: any;
 }
 
-function UserGeneralInfo({ setCurrentView }: UserGeneralInfoProps) {
+function UserMeasurements({ setCurrentView }: UserGeneralInfoProps) {
   // The following hooks represent each data field in the form
   const [name, setName] = useState("Seth");
   const [lastname, setLastname] = useState("Fairbairn");
@@ -53,7 +54,7 @@ function UserGeneralInfo({ setCurrentView }: UserGeneralInfoProps) {
         </ButtonWrapperRight>
         <ButtonWrapperLeft>
           <Tooltip title="Go Back">
-            <IconButton onClick={() => setCurrentView(3)}>
+            <IconButton onClick={() => setCurrentView(2)}>
               <ChevronLeftIcon sx={{ color: "#000000" }} />
             </IconButton>
           </Tooltip>
@@ -65,51 +66,16 @@ function UserGeneralInfo({ setCurrentView }: UserGeneralInfoProps) {
           style={{ width: "224px", height: "50px" }}
         />
       </HeaderLogoWrapper>
-      <H4Text variant="h4">General Account Info</H4Text>
+      <H4Text variant="h4">What are your measurements?</H4Text>
       <BodyOneText variant="body1">
-        Helps us personalize your experience with Stylecard!
+        We need a few key measurements from you to personalize your results.
+        It’s best to be as accurate as possible!
       </BodyOneText>
-      <NamesWrapper>
-        <CustomEditableTextInput
-          value={name}
-          label={"Name"}
-          onChange={setName}
-        />
-        <CustomEditableTextInput
-          value={lastname}
-          label={"Lastname"}
-          onChange={setLastname}
-        />
-      </NamesWrapper>
-      <CustomDropdownSelect
-        fullWidth
-        select
-        label="Clothing Type"
-        defaultValue="Women"
-        SelectProps={{
-          native: true,
-        }}
-      >
-        {ClothingType.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </CustomDropdownSelect>
-      <NamesWrapper>
-        <CustomEditableTextInput
-          value={phone}
-          label={"Phone Number"}
-          onChange={setPhone}
-        />
-        <CustomEditableTextInput
-          value={email}
-          label={"Email"}
-          onChange={setEmail}
-        />
-      </NamesWrapper>
-      <SectionTitle variant="body2">Birthday</SectionTitle>
-      <BirthdayWrapper>
+      <RadioButtonWrapper>
+        <CustomRadioButton value={"inches"} label={"Inches"} />
+        <CustomRadioButton value={"meters"} label={"Meters"} />
+      </RadioButtonWrapper>
+      <MeasuresWrapper>
         <CustomSquareInput value={BDDay} label={"Day"} onChange={setBDDay} />
         <CustomSquareInput
           value={BDMonth}
@@ -117,20 +83,29 @@ function UserGeneralInfo({ setCurrentView }: UserGeneralInfoProps) {
           onChange={setBDMonth}
         />
         <CustomSquareInput value={BDYear} label={"Year"} onChange={setBDYear} />
-      </BirthdayWrapper>
+      </MeasuresWrapper>
+      <SectionTitle variant="body2">Names</SectionTitle>
+      <StatureWrapper>
+        <CustomSquareInput
+          value={BDMonth}
+          label={"Month"}
+          onChange={setBDMonth}
+        />
+        <CustomSquareInput value={BDYear} label={"Year"} onChange={setBDYear} />
+      </StatureWrapper>
       <CustomCTAButton
         onClick={() => {
-          setCurrentView(3);
+          setCurrentView(4);
         }}
         label={"Save Changes"}
         variant={"share"}
-        style={{ marginTop: "20px" }}
+        style={{ marginTop: "30px" }}
       />
     </AppContainer>
   );
 }
 
-export default UserGeneralInfo;
+export default UserMeasurements;
 
 const AppContainer = styled(Box)(({ theme }) => ({
   maxWidth: "390px",
@@ -153,26 +128,39 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   marginBottom: "20px",
 }));
 
-const NamesWrapper = styled(Box)(({ theme }) => ({
+const RadioButtonWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "auto",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  alignItems: "center",
-  marginTop: "20px",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  gap: "60px",
+  marginTop: "27px",
 }));
 
-const BirthdayWrapper = styled(Box)(({ theme }) => ({
+const MeasuresWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "auto",
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr",
   alignItems: "center",
   justifyItems: "center",
+  marginTop: "28px",
+}));
+
+const StatureWrapper = styled(Box)(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "60px",
 }));
 
 const BodyOneText = styled(Typography)(({ theme }) => ({
   textAlign: "left",
+  marginTop: "3px",
 }));
 
 const H4Text = styled(Typography)(({ theme }) => ({
@@ -188,23 +176,6 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   marginBottom: "22px",
 }));
 
-const CustomDropdownSelect = styled(TextField)(({ theme }) => ({
-  minWidth: "300px",
-  background: "#FFFFFF",
-  opacity: 0.25,
-  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-  borderRadius: "10px",
-  marginTop: "20px",
-}));
-
-const HeaderLogoWrapper = styled(Box)(({ theme }) => ({
-  width: "100%",
-  height: "auto",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-}));
-
 const ButtonWrapperRight = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: "0px",
@@ -215,4 +186,12 @@ const ButtonWrapperLeft = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: "0px",
   left: "0px",
+}));
+
+const HeaderLogoWrapper = styled(Box)(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 }));
