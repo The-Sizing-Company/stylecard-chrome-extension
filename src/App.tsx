@@ -5,6 +5,11 @@ import UserStylePreferences from "./templates/UserStylePreferences/UserStylePref
 import UserSignIn from "./templates/UserSignIn/UserSignIn";
 import UserSignUp from "./templates/UserSignUp/UserSignUp";
 import UserMeasurements from "./templates/UserMeasurements/UserMeasurements";
+import DiscoverView from "./templates/DiscoverView/DiscoverView";
+import WishlistView from "./templates/WishlistView/WishlistView";
+import UserProfileView from "./templates/UserProfileView/UserProfileView";
+import UserSizePreferences from "./templates/UserSizePreferences/UserSizePreferences";
+import HelpView from "./templates/HelpView/HelpView";
 
 function App() {
   // The following hook controls current view display based on view index [1-5]
@@ -29,11 +34,21 @@ function App() {
             <UserStylePreferences setCurrentView={setCurrentView} />
           )}
           {currentView === 3 && (
-            <UserMeasurements setCurrentView={setCurrentView} />
+            <UserSizePreferences setCurrentView={setCurrentView} />
           )}
           {currentView === 4 && (
-            <UserGeneralInfo setCurrentView={setCurrentView} />
+            <UserMeasurements setCurrentView={setCurrentView} />
           )}
+          {currentView === 5 && (
+            <DiscoverView setCurrentView={setCurrentView} />
+          )}
+          {currentView === 6 && (
+            <WishlistView setCurrentView={setCurrentView} />
+          )}
+          {currentView === 7 && (
+            <UserProfileView setCurrentView={setCurrentView} />
+          )}
+          {currentView === 8 && <HelpView setCurrentView={setCurrentView} />}
         </div>
       </main>
     </>

@@ -95,7 +95,7 @@ function UserMeasurements({ setCurrentView }: UserGeneralInfoProps) {
       </StatureWrapper>
       <CustomCTAButton
         onClick={() => {
-          setCurrentView(4);
+          setCurrentView(5);
         }}
         label={"Save Changes"}
         variant={"share"}
@@ -121,11 +121,10 @@ const AppContainer = styled(Box)(({ theme }) => ({
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  height: "30px",
+  height: "auto",
   display: "flex",
   flexDirection: "row",
   position: "relative",
-  marginBottom: "20px",
 }));
 
 const RadioButtonWrapper = styled(Box)(({ theme }) => ({
@@ -194,4 +193,5 @@ const HeaderLogoWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  marginTop: "24px",
 }));

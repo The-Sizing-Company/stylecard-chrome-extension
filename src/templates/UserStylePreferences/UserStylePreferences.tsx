@@ -3,15 +3,14 @@ import {
   Button,
   IconButton,
   styled,
-  TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import React, { useState } from "react";
 import CustomCTAButton from "../../components/CustomCTAButton/CustomCTAButton";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const ClothingType = [
   {
