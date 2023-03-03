@@ -29,7 +29,7 @@ interface UserSignInProps {
 
 function UserSignUp({ setCurrentView }: UserSignInProps) {
   const [name, setName] = useState("");
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("(+1)");
   const [phone, setPhone] = useState("");
   return (
     <AppContainer>

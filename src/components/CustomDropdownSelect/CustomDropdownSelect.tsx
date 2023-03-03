@@ -5,12 +5,14 @@ interface customDropdownSelectProps {
   label: string;
   options: any[];
   onClick: any;
+  style?: any;
 }
 
 function CustomDropdownSelect({
   label,
   options,
   onClick,
+  style,
 }: customDropdownSelectProps) {
   const [value, setValue] = React.useState("");
   const handleChange = (event: any) => {
@@ -19,6 +21,7 @@ function CustomDropdownSelect({
   };
   return (
     <CustomDropdown
+      sx={style ? style : {}}
       fullWidth
       select
       label={label}
